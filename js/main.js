@@ -11,16 +11,21 @@ var GameState = {
 		this.load.image('arrow', 'assets/arrow.png');
 		//this.load.spritesheet('char_turn', 'assets/char_turn.png', 60, 138, 81);
 		this.game.load.atlasJSONHash('char_turn', 'assets/char_turn.png', 'assets/char_turn.json');
+		//  Firefox doesn't support mp3 files, so use ogg
+    	this.game.load.audio('bgmusic', ['assets/audio/bgmusic.ogg']);
 
 	},
 	create:function () {
+
+		music = this.game.add.audio('bgmusic');
+    	music.play();
 
 		this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
 		this.scale.pageAlignHorizontally = true;
 		this.scale.pageAlignVertically = true;
 
-		//this.bg = this.game.add.sprite(0,0,'bg');
     	this.game.stage.backgroundColor = '#444';
+		this.bg = this.game.add.sprite(0,0,'bg');
 
 
 		this.brick = this.game.add.sprite(this.game.world.centerX,this.game.world.centerY,'brick');
@@ -43,8 +48,16 @@ var GameState = {
 
 		viajero= game.add.sprite(this.game.world.centerX,this.game.world.centerY-40, 'char_turn');
 		//this.viajero.anchor.setTo(0.5,.9);
-		viajero.animations.add('turn_left',[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21]);
-		viajero.animations.add('turn_right',[21,20,19,18,17,16,15,14,13,12,11,10,9,8,7,6,5,4,3,2,1]);
+		viajero.customParams = {direction : 1};
+		viajero.animations.add('turn_1_2',	[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21]);
+		viajero.animations.add('turn_2_3',[21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41]);
+		viajero.animations.add('turn_3_4',[41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61]);
+		viajero.animations.add('turn_4_1',[61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81]);
+
+		viajero.animations.add('turn_2_1',	[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21].reverse());
+		viajero.animations.add('turn_3_2',[21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41].reverse());
+		viajero.animations.add('turn_4_3',[41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61].reverse());
+		viajero.animations.add('turn_1_4',[61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81].reverse());
 
 		//left 
 		this.arrow_left = this.game.add.sprite(0,0,'arrow');
@@ -62,14 +75,10 @@ var GameState = {
 	     linea = new Phaser.Line(this.game.world.centerX, 0, this.game.world.centerX, 360);
 
 
-
-
 	},
 	update:function() {
 		//game.debug.lineInfo(linea, 32, 32);
 		//this.game.debug.geom(linea);
-	     
-
 
 	},
 	moveChar: function(sprite,event ) {
@@ -78,12 +87,44 @@ var GameState = {
 		if (sprite.customParams.direction<0) {
 			//viajero.position.x -=10;
 			//viajero.position.y +=5;
-    		viajero.animations.play('turn_right', 24, false);
+			if (viajero.customParams.direction ==1) {
+    			viajero.animations.play('turn_1_2', 24, false);
+			} 
+			if (viajero.customParams.direction == 2) {
+    			viajero.animations.play('turn_2_3', 24, false);
+			}
+			if (viajero.customParams.direction == 3) {
+    			viajero.animations.play('turn_3_4', 24, false);
+			}
+			if (viajero.customParams.direction == 4) {
+    			viajero.animations.play('turn_4_1', 24, false);
+			}
+			viajero.customParams.direction++;
+			if (viajero.customParams.direction==5) {
+				viajero.customParams.direction=1;
+			}
+			console.log(viajero.customParams.direction);
 
 		}else {
-			//viajero.position.x +=10;
+			//viajero.position.x -=10;
 			//viajero.position.y +=5;
-    		viajero.animations.play('turn_left', 24, false);
+			if (viajero.customParams.direction ==1) {
+    			viajero.animations.play('turn_1_4', 24, false);
+			} 
+			if (viajero.customParams.direction == 2) {
+    			viajero.animations.play('turn_2_1', 24, false);
+			}
+			if (viajero.customParams.direction == 3) {
+    			viajero.animations.play('turn_3_2', 24, false);
+			}
+			if (viajero.customParams.direction == 4) {
+    			viajero.animations.play('turn_4_3', 24, false);
+			}
+			viajero.customParams.direction--;
+			if (viajero.customParams.direction==0) {
+				viajero.customParams.direction=4;
+			}
+			console.log(viajero.customParams.direction);
 		};
 	} ,
 	animateChar: function(sprite,event ) {
