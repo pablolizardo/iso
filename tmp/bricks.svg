@@ -26,21 +26,22 @@
      borderopacity="0.5"
      inkscape:pageopacity="0"
      inkscape:pageshadow="0"
-     inkscape:zoom="3.4013949"
-     inkscape:cx="30.171446"
-     inkscape:cy="18.23103"
+     inkscape:zoom="1.7006975"
+     inkscape:cx="290.33617"
+     inkscape:cy="131.97347"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
-     showgrid="true"
+     showgrid="false"
      inkscape:snap-bbox="true"
      inkscape:bbox-nodes="true"
      inkscape:object-paths="true"
      inkscape:object-nodes="true"
-     inkscape:window-width="1366"
-     inkscape:window-height="706"
+     inkscape:window-width="1920"
+     inkscape:window-height="1018"
      inkscape:window-x="0"
      inkscape:window-y="25"
-     inkscape:window-maximized="1">
+     inkscape:window-maximized="1"
+     showguides="false">
     <inkscape:grid
        type="axonomgrid"
        id="grid4136"
@@ -55,7 +56,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -64,21 +65,169 @@
      inkscape:groupmode="layer"
      id="layer1">
     <image
-       sodipodi:absref="/home/pablo/public_html/iso/assets/char.png"
-       xlink:href="/home/pablo/public_html/iso/assets/char.png"
-       width="14"
-       height="49"
-       preserveAspectRatio="none"
-       id="image4395"
+       sodipodi:absref="/home/plizardo/public_html/iso/tmp/../assets/char.png"
+       xlink:href="../assets/char.png"
+       y="133.83464"
        x="122.74376"
-       y="133.83464" />
+       id="image4395"
+       preserveAspectRatio="none"
+       height="49"
+       width="14" />
     <path
        style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#7bdec1;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;marker-start:none;marker-mid:none;marker-end:none;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
-       d="M 61.371879,342.28346 30.68594,324.56693 0,342.28346 30.685939,360 Z"
+       d="M 61.371879,107.67383 30.68594,89.9573 0,107.67383 30.685939,125.39037 Z"
        id="path4398"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ccccc"
        inkscape:export-xdpi="90.92112"
        inkscape:export-ydpi="90.92112" />
+    <g
+       id="g8973"
+       inkscape:export-filename="/home/plizardo/public_html/iso/assets/bt_arrow_active.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <rect
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/home/plizardo/public_html/iso/assets/arrow.png"
+         y="180"
+         x="0"
+         height="180"
+         width="92.057816"
+         id="rect8907"
+         style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#000000;fill-opacity:0.19148937;fill-rule:nonzero;stroke:none;stroke-width:0.27281204;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;marker-start:none;marker-mid:none;marker-end:none;paint-order:markers fill stroke;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate" />
+      <path
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/home/plizardo/public_html/iso/assets/arrow.png"
+         inkscape:connector-curvature="0"
+         id="path8896"
+         d="m 61.372658,252.2832 0,35.43359 L 30.685158,270 l 30.6875,-17.7168 z"
+         style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#7bdec1;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;marker-start:none;marker-mid:none;marker-end:none;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate" />
+    </g>
+    <g
+       id="g8963"
+       inkscape:export-filename="/home/plizardo/public_html/iso/assets/bt_action.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <rect
+         style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#000000;fill-opacity:0.19148937;fill-rule:nonzero;stroke:none;stroke-width:0.27281204;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;marker-start:none;marker-mid:none;marker-end:none;paint-order:markers fill stroke;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+         id="rect8915"
+         width="92.057816"
+         height="180"
+         x="199.4586"
+         y="180"
+         inkscape:export-filename="/home/plizardo/public_html/iso/assets/arrow.png"
+         inkscape:export-xdpi="90"
+         inkscape:export-ydpi="90" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path8921"
+         d="m 230.14455,262.55906 15.34297,-8.85827 15.34297,8.85827 -15.34297,8.85826 z"
+         style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#7bdec1;stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path8923"
+         d="m 230.14455,262.55906 0,17.71653 15.34297,8.85827 0,-17.71654 z"
+         style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#7bdec1;stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1" />
+      <path
+         style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#7bdec1;stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+         d="m 260.83049,262.55906 0,17.71653 -15.34297,8.85827 0,-17.71654 z"
+         id="path8925"
+         inkscape:connector-curvature="0" />
+    </g>
+    <g
+       id="g8986"
+       inkscape:export-filename="/home/plizardo/public_html/iso/assets/bt_action_active.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <rect
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/home/plizardo/public_html/iso/assets/arrow.png"
+         y="180"
+         x="325.87732"
+         height="180"
+         width="92.057816"
+         id="rect8955"
+         style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#000000;fill-opacity:0.19148937;fill-rule:nonzero;stroke:none;stroke-width:0.27281204;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;marker-start:none;marker-mid:none;marker-end:none;paint-order:markers fill stroke;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate" />
+      <path
+         style="fill:#7bdec1;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+         d="m 356.56327,262.55906 15.34297,-8.85827 15.34297,8.85827 -15.34297,8.85826 z"
+         id="path8957"
+         inkscape:connector-curvature="0" />
+      <path
+         style="fill:#7bdec1;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+         d="m 356.56327,262.55906 0,17.71653 15.34297,8.85827 0,-17.71654 z"
+         id="path8959"
+         inkscape:connector-curvature="0" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path8961"
+         d="m 387.24921,262.55906 0,17.71653 -15.34297,8.85827 0,-17.71654 z"
+         style="fill:#7bdec1;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1" />
+    </g>
+    <g
+       id="g8969"
+       inkscape:export-filename="/home/plizardo/public_html/iso/assets/btn_arrow.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90">
+      <rect
+         style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#000000;fill-opacity:0.19148937;fill-rule:nonzero;stroke:none;stroke-width:0.27281204;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;marker-start:none;marker-mid:none;marker-end:none;paint-order:markers fill stroke;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+         id="rect8933"
+         width="92.057816"
+         height="180"
+         x="94.511475"
+         y="180"
+         inkscape:export-filename="/home/plizardo/public_html/iso/assets/arrow.png"
+         inkscape:export-xdpi="90"
+         inkscape:export-ydpi="90" />
+      <path
+         style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#7bdec1;stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;marker-start:none;marker-mid:none;marker-end:none;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate;filter-blend-mode:normal;filter-gaussianBlur-deviation:0"
+         d="m 155.88413,252.2832 0,35.43359 L 125.19663,270 l 30.6875,-17.7168 z"
+         id="path8935"
+         inkscape:connector-curvature="0"
+         inkscape:export-filename="/home/plizardo/public_html/iso/assets/arrow.png"
+         inkscape:export-xdpi="90"
+         inkscape:export-ydpi="90" />
+    </g>
+    <rect
+       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#000000;fill-opacity:0.19148937;fill-rule:nonzero;stroke:none;stroke-width:0.27281204;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;marker-start:none;marker-mid:none;marker-end:none;paint-order:markers fill stroke;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+       id="rect7198"
+       width="92.057816"
+       height="180"
+       x="432.30423"
+       y="-360"
+       inkscape:export-filename="/home/plizardo/public_html/iso/assets/btn_up.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       transform="scale(1,-1)" />
+    <g
+       id="g7217"
+       transform="translate(0,10.272011)">
+      <path
+         style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#7bdec1;stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+         d="m 462.99019,259.72441 15.34297,-8.85827 0,17.71654"
+         id="path7202"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="ccc" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path7204"
+         d="m 493.67613,259.72441 -15.34297,-8.85827 0,17.71654"
+         style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#7bdec1;stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+         sodipodi:nodetypes="ccc" />
+    </g>
+    <rect
+       transform="scale(1,-1)"
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/home/plizardo/public_html/iso/assets/btn_empty.png"
+       y="-360"
+       x="536.96716"
+       height="180"
+       width="92.057816"
+       id="rect7221"
+       style="color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#000000;fill-opacity:0.19148937;fill-rule:nonzero;stroke:none;stroke-width:0.27281204;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;marker-start:none;marker-mid:none;marker-end:none;paint-order:markers fill stroke;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate" />
   </g>
 </svg>
