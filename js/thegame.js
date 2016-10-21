@@ -3,13 +3,17 @@ var linea;
 
 var GameState = {
 	preload:function () {
+		// body...
 		console.log('preload');
-		this.load.image('brick', 'assets/brick_1.png');
+		this.load.image('brick', 'assets/brick.png');
 		this.load.image('bg', 'assets/bg_cyan.png');
 		this.load.image('char', 'assets/char.png');
 		this.load.image('arrow', 'assets/arrow.png');
+		//this.load.spritesheet('char_turn', 'assets/char_turn.png', 60, 138, 81);
 		this.game.load.atlasJSONHash('char_turn', 'assets/char_turn.png', 'assets/char_turn.json');
+		//  Firefox doesn't support mp3 files, so use ogg
     	this.game.load.audio('bgmusic', ['assets/audio/bgmusic.ogg']);
+
 	},
 	create:function () {
 		game.world.setBounds(0, 0, 640, 360);
@@ -19,47 +23,32 @@ var GameState = {
 		this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
 		this.scale.pageAlignHorizontally = true;
 		this.scale.pageAlignVertically = true;
+
     	this.game.stage.backgroundColor = '#18283C';
 
-		// var level = [1,1,1,1,2,-1,2,3];
-		var level_1 =[[1,2,1,1,2], [1,3,6,3,1], [3,2,7,4,2], [4,1,4,1,5] ,[4,2,3,4,3]];
-		// for (var i = level.length - 1; i >= 0; i--) {
-		// 	var distanceX = 60;
-		// 	var distanceY = 138;
-		// 	var brick = this.game.add.sprite(this.game.world.centerX+(distanceX/2)*i,200+(distanceX/2)-17*i,'brick');
-		// 	brick.anchor.setTo(0.5	);
-		// 	brick.position.y -= level[i]*(distanceX/2);
-		// };
-		var distanceX = 62;
-		var distanceY = 36;
-		var stepY =0;
-		var stepX =0;
 
-		for (var i = level_1.length - 1; i >= 0; i--) {
-			for (var j = level_1[i].length - 1; j >= 0; j--) {
-				var brick = this.game.add.sprite(this.game.world.centerX-150+j*31+stepX,this.game.world.centerY-18*j+stepY,'brick');
-				// brick.anchor.setTo(0.5);
-				brick.position.y -= level_1[i][j];
-				this.game.add.tween(brick).from( { y: -200 });
-				this.game.add.tween(brick).start;
+		//this.brick = this.game.add.sprite(this.game.world.centerX,this.game.world.centerY,'brick');
+		//this.brick.anchor.setTo(0.5,.9);
 
-				var brickTween = game.add.tween(brick.position.y);
-				brickTween.to({y:200}, 200, Phaser.Easing.Linear.None);
-				
-				brickTween.start();
-
-				//brick.tint = Math.random() * 0xffffff;
-				//brick.tint = (level_1[i][j]/10+Math.random()) * 0xffffff;
-				console.log(level_1[i][j]);
-			};
-			distanceY -=15;
-			stepY+=18;
-			stepX+=31;
-			console.log(' ---- ')
+		var level = [1,2,-1,1,2,-1,2,3];
+		for (var i = level.length - 1; i >= 0; i--) {
+			//level[i];
+			var distanceX = 60;
+			var distanceY = 138;
+			var brick = this.game.add.sprite(this.game.world.centerX+(distanceX/2)*i,200+(distanceX/2)-17*i,'brick');
+			//brick.scale.setTo(.5);
+			brick.anchor.setTo(0.5	);
+			brick.position.y -= level[i]*(distanceX/2);
 		};
+
+		//this.char = this.game.add.sprite(this.game.world.centerX,this.game.world.centerY-40,'char');
+		//this.char.anchor.setTo(0.5,.9);
+		//this.char.inputEnabled = true;
+		//this.char.events.onInputDown.add(this.animateChar, this);
 
 		viajero= game.add.sprite(this.game.world.centerX,this.game.world.centerY-30, 'char_turn');
 		viajero.anchor.setTo(0.5,.9);
+		//viajero.scale.setTo(.5);
 		viajero.customParams = {direction : 1};
 		viajero.animations.add('turn_1_2',	[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21]);
 		viajero.animations.add('turn_2_3',[21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41]);
@@ -90,11 +79,16 @@ var GameState = {
 
 	},
 	update:function() {
+		//game.debug.lineInfo(linea, 32, 32);
+		//this.game.debug.geom(linea);
+
 	},
 	moveChar: function(sprite,event ) {
 		console.log('mover personaje a la izquierda');
 		console.log(sprite.customParams.direction);
 		if (sprite.customParams.direction<0) {
+			//viajero.position.x -=10;
+			//viajero.position.y +=5;
 			if (viajero.customParams.direction ==1) {
     			viajero.animations.play('turn_1_2', 24, false);
 			} 
