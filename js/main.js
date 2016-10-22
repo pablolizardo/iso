@@ -83,19 +83,19 @@ var GameState = {
 		viajero.animations.add('walk_4',[141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,]);
 
 		//left 
-		this.arrow_left = this.game.add.sprite(0,game.world.centerY,'arrow');
+		this.arrow_left = this.game.add.sprite(0,game.world.centerY,'ui',5);
 		this.arrow_left.customParams = {direction :-1};
 		this.arrow_left.inputEnabled = true;
 		this.arrow_left.events.onInputDown.add(this.turnChar,this );
 
-		this.arrow_right = this.game.add.sprite(this.game.world.width,game.world.centerY,'arrow');
+		this.arrow_right = this.game.add.sprite(this.game.world.width,game.world.centerY,'ui',5);
 		this.arrow_right.scale.x = -1;
 		this.arrow_right.customParams = {direction :1};
 		this.arrow_right.inputEnabled = true;
 		this.arrow_right.events.onInputDown.add(this.turnChar,this );
 
-		this.action_left = this.game.add.sprite(0,0,'btn_empty');
-		this.action_right = this.game.add.sprite(this.game.world.width-this.action_left.width,0,'btn_up');
+		this.action_left = this.game.add.sprite(0,0,'ui',1);
+		this.action_right = this.game.add.sprite(this.game.world.width-this.action_left.width,0,'ui',7);
 		this.action_right.inputEnabled = true;
 		this.action_right.events.onInputDown.add(this.moveChar,this);
 		
