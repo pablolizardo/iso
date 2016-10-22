@@ -4,15 +4,16 @@ var linea;
 var GameState = {
 	preload:function () {
 		console.log('preload');
-		this.load.image('brick', 'assets/brick_1.png');
-		this.load.image('bg', 'assets/bg_cyan.png');
-		this.load.image('char', 'assets/char.png');
-		this.load.image('arrow', 'assets/btn_arrow.png');
-		this.load.image('btn_up', 'assets/btn_up.png');
-		this.load.image('btn_empty', 'assets/btn_empty.png');
+		// this.load.image('brick', 'assets/brick_1.png');
+		// this.load.image('bg', 'assets/bg_cyan.png');
+		// this.load.image('char', 'assets/char.png');
+		// this.load.image('arrow', 'assets/btn_arrow.png');
+		// this.load.image('btn_up', 'assets/btn_up.png');
+		// this.load.image('btn_empty', 'assets/btn_empty.png');
 		// this.game.load.atlasJSONHash('char_turn', 'assets/char_turn.png', 'assets/char_turn.json');
 		// this.game.load.atlasJSONHash('char_walk', 'assets/char_walk.png', 'assets/char_walk.json');
 		this.game.load.atlasJSONHash('viajero', 'assets/viajero.png', 'assets/viajero.json');
+		this.game.load.atlasJSONHash('ui', 'assets/ui.png', 'assets/ui.json');
     	this.game.load.audio('bgmusic', ['assets/audio/bgmusic.ogg']);
 	},
 	create:function () {
@@ -114,22 +115,26 @@ var GameState = {
 			case 1: 
 				var posx =  viajero.x - 36; 
 				var posy = viajero.y + 18; 
-				game.add.tween(viajero).to( { y: posy, x : posx}, 1000, Phaser.Linear, true);
+				game.add.tween(viajero).to( { y: posy, x : posx}, 600, "Linear", true);
     			viajero.animations.play('walk_1', 24, false);
 				break;
 			case 2: 
 				var posx =  viajero.x + 36; 
 				var posy = viajero.y + 18; 
-				game.add.tween(viajero).to( { y: posy, x : posx}, 1000, Phaser.Linear, true);
+				game.add.tween(viajero).to( { y: posy, x : posx}, 500, "Linear", true);
     			viajero.animations.play('walk_2', 24, false);
 				break;
 			case 3: 
-				viajero.x += 36; 
-				viajero.y -= 18; 
+				var posx =  viajero.x + 36; 
+				var posy = viajero.y - 18; 
+				game.add.tween(viajero).to( { y: posy, x : posx}, 500, "Linear", true);
+    			viajero.animations.play('walk_3', 24, false);
 				break;
 			case 4: 
-				viajero.x -= 36; 
-				viajero.y -= 18; 
+				var posx =  viajero.x - 36; 
+				var posy = viajero.y - 18; 
+				game.add.tween(viajero).to( { y: posy, x : posx}, 500, "Linear", true);
+    			viajero.animations.play('walk_4', 24, false);
 				break;
 		}
 	},
