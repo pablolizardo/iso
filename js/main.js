@@ -4,8 +4,8 @@ var isoGroup, cursorPos, cursor;
 
 var ii = 0; 
 var jj = 0;
-var dx = 44;
-var dy = 44;
+var dx = 12;
+var dy = 12;
 var bdx = 21;
 var bdy = 21;
 
@@ -15,7 +15,7 @@ var animTime = 300;
 
 var Level = {
 	preload:function () {
-		this.load.image('brick', 'assets/brick_1.png');
+		//this.load.image('brick', 'assets/brick_1.png');
 		this.load.image('pos', 'assets/pos.png');
 		this.load.image('rain', 'assets/rain.png');
 		this.game.load.atlasJSONHash('viajero', 'assets/viajero.png', 'assets/viajero.json');
@@ -78,10 +78,10 @@ var emitter = game.add.emitter(0, 0, 400);
 		
         for (var xx = bdx*dx; xx > 0; xx -= bdx) {
             for (var yy = bdy*dy; yy > 0; yy -= bdy) {
-                cube = game.add.isoSprite(xx, yy, 0, 'brick', 0, isoGroup);
+                cube = game.add.isoSprite(xx, yy, 0, 'bricks', Math.floor(Math.random() * 2)  , isoGroup);
                 cube.anchor.set(0.5);
                 cube.scale.set(0.3);
-                cube.alpha =Math.random()/3;
+                cube.alpha =Math.random()/3+0.8;
                 // if (level_matrix[ii][jj] >0) {
                 // 	//cube.destroy();
 	               //  //game.add.tween(cube).to({ isoZ: 10 }, 100 * ((xx + yy) % 10), Phaser.Easing.Quadratic.InOut, true, 0, Infinity, true);
