@@ -1,21 +1,23 @@
-var game = new Phaser.Game(640,360,Phaser.AUTO);
+	var game = new Phaser.Game(640,360,Phaser.AUTO);
 var linea;
 var isoGroup, cursorPos, cursor;
 
 var ii = 0; 
 var jj = 0;
-var dx = 10;
-var dy = 10;
+var dx = 44;
+var dy = 44;
 var bdx = 21;
 var bdy = 21;
 
-var fps =60;
-var animTime = 400;
+var fps =70;
+var animTime = 300;
 
 
 var Level = {
 	preload:function () {
 		this.load.image('brick', 'assets/brick_1.png');
+		this.load.image('pos', 'assets/pos.png');
+		this.load.image('rain', 'assets/rain.png');
 		this.game.load.atlasJSONHash('viajero', 'assets/viajero.png', 'assets/viajero.json');
 		this.game.load.atlasJSONHash('ui', 'assets/ui.png', 'assets/ui.json');
 		this.game.load.atlasJSONHash('bricks', 'assets/bricks.png', 'assets/bricks.json');
@@ -34,12 +36,33 @@ var Level = {
 	create:function () {
 		//game.world.setBounds(0, 0, 640, 360);
 		music = this.game.add.audio('bgmusic');
-    	//music.play();
+    	music.play();
 
 		this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
 		this.scale.pageAlignHorizontally = true;
 		this.scale.pageAlignVertically = true;
     	this.game.stage.backgroundColor = '#18283C';
+
+
+var emitter = game.add.emitter(0, 0, 400);
+
+	emitter.width = game.world.width*2;
+	// emitter.angle = 30; // uncomment to set an angle for the rain.
+
+	emitter.makeParticles('rain');
+	emitter.fixedToCamera = true;
+
+	emitter.minParticleScale = 0.1;
+	emitter.maxParticleScale = 0.5;
+
+	emitter.setYSpeed(100, 200);
+	emitter.setXSpeed(-45, -35);
+
+	emitter.minRotation = 0;
+	emitter.maxRotation = 0;
+
+	emitter.start(false, 1400, 5, 0);
+
 
 		// var level_1 =[];
 		// for (var i = 0; i < dx; i++) {
@@ -74,6 +97,11 @@ var Level = {
 		this.char.anchor.setTo(0.5,.9);
 		this.char.scale.set(0.5);
 		this.char.customParams = {direction : 1};
+
+		this.pos= game.add.sprite(0,0, 'pos');
+		this.pos.anchor.setTo(0.5,.89);
+		this.pos.scale.set(0.2);
+		
 
     	game.camera.follow(this.char);
 
@@ -110,7 +138,8 @@ var Level = {
     	right = game.input.keyboard.addKey(Phaser.Keyboard.RIGHT);
     	right.onDown.add(this.turnRight, this);
 
-		this.btn_up = this.game.add.sprite(this.game.world.width-this.btn_right.width,0,'ui',7);
+		this.btn_up = this.game.add.sprite(this.game.world.width-this.btn_left.width,0,'ui',7);
+		//console.log("ancho" + this.btn_left.width);
 		this.btn_up.inputEnabled = true;
 		this.btn_up.events.onInputDown.add(this.moveChar, this);
 		up = game.input.keyboard.addKey(Phaser.Keyboard.UP);
@@ -130,6 +159,24 @@ var Level = {
 
 	},
 	update:function() {
+		switch (this.char.customParams.direction) {
+			case 1: 
+				this.pos.x = this.char.x -19;
+				this.pos.y = this.char.y -15;
+			break;
+			case 2: 
+				this.pos.x = this.char.x +19;
+				this.pos.y = this.char.y -15;
+			break;
+			case 3: 
+				this.pos.x = this.char.x +19;
+				this.pos.y = this.char.y -34;
+			break;
+			case 4: 
+				this.pos.x = this.char.x -19;
+				this.pos.y = this.char.y -34;
+			break;
+		}
 	},
 	moveChar: function(v) {
 		switch (this.char.customParams.direction){
