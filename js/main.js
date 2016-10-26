@@ -2,25 +2,23 @@
 var linea;
 var isoGroup, cursorPos, cursor;
 
-var ii = 0; 
-var jj = 0;
-var dx = 12;
-var dy = 12;
-var bdx = 21;
-var bdy = 21;
 
 var fps =70;
 var animTime = 300;
 
+var dx = 5;
+var dy = 5;
+var bdx = 21;
+var bdy = 21;
 
 var Level = {
 	preload:function () {
-		//this.load.image('brick', 'assets/brick_1.png');
+		this.load.image('brick', 'assets/brick.png');
 		this.load.image('pos', 'assets/pos.png');
 		this.load.image('rain', 'assets/rain.png');
 		this.game.load.atlasJSONHash('viajero', 'assets/viajero.png', 'assets/viajero.json');
 		this.game.load.atlasJSONHash('ui', 'assets/ui.png', 'assets/ui.json');
-		this.game.load.atlasJSONHash('bricks', 'assets/bricks.png', 'assets/bricks.json');
+		//this.game.load.atlasJSONHash('bricks', 'assets/bricks.png', 'assets/bricks.json');
     	this.game.load.audio('bgmusic', ['assets/audio/bgmusic.ogg']);
 
     	this.centerX = this.game.world.centerX;
@@ -30,6 +28,7 @@ var Level = {
 
 	    game.plugins.add(new Phaser.Plugin.Isometric(game));
 	    game.physics.startSystem(Phaser.Plugin.Isometric.ISOARCADE);
+
 	    game.iso.anchor.setTo(0.5, 0);
 
 	},
@@ -44,24 +43,24 @@ var Level = {
     	this.game.stage.backgroundColor = '#18283C';
 
 
-var emitter = game.add.emitter(0, 0, 400);
+		var emitter = game.add.emitter(0, 0, 100	);
 
-	emitter.width = game.world.width*2;
-	// emitter.angle = 30; // uncomment to set an angle for the rain.
+			emitter.width = game.world.width*2;
+			// emitter.angle = 30; // uncomment to set an angle for the rain.
 
-	emitter.makeParticles('rain');
-	emitter.fixedToCamera = true;
+			emitter.makeParticles('rain');
+			emitter.fixedToCamera = true;
 
-	emitter.minParticleScale = 0.1;
-	emitter.maxParticleScale = 0.5;
+			emitter.minParticleScale = 0.1;
+			emitter.maxParticleScale = 0.5;
 
-	emitter.setYSpeed(100, 200);
-	emitter.setXSpeed(-45, -35);
+			emitter.setYSpeed(100, 200);
+			emitter.setXSpeed(-45, -35);
 
-	emitter.minRotation = 0;
-	emitter.maxRotation = 0;
+			emitter.minRotation = 0;
+			emitter.maxRotation = 0;
 
-	emitter.start(false, 1400, 5, 0);
+			emitter.start(false, 1400, 5, 0);
 
 
 		// var level_1 =[];
@@ -74,29 +73,54 @@ var emitter = game.add.emitter(0, 0, 400);
 
         isoGroup = game.add.group();
 
-		var cube; 
 		
+		var ii = 0; 
+		var jj = 0;
+
+		var cube; 
+
+		
+		level_matrix = [[1,1,1,1,1],
+						[1,1,1,0,1],
+						[0,0,1,0,1],
+						[1,1,0,0,1],
+						[1,1,0,1,0]];
+		//var cubito;
+		//cubito = game.add.Cube(10, 10, 10, 20, 32, 32) ;
+
         for (var xx = bdx*dx; xx > 0; xx -= bdx) {
             for (var yy = bdy*dy; yy > 0; yy -= bdy) {
-                cube = game.add.isoSprite(xx, yy, 0, 'bricks', Math.floor(Math.random() * 2)  , isoGroup);
+                cube = game.add.isoSprite(xx, yy,  -42, 'brick',0 , isoGroup);
+                //cube = game.add.isoSprite(xx, yy,  4, 'bricks',0 , isoGroup);
                 cube.anchor.set(0.5);
                 cube.scale.set(0.3);
-                cube.alpha =Math.random()/3+0.8;
-                // if (level_matrix[ii][jj] >0) {
-                // 	//cube.destroy();
-	               //  //game.add.tween(cube).to({ isoZ: 10 }, 100 * ((xx + yy) % 10), Phaser.Easing.Quadratic.InOut, true, 0, Infinity, true);
-                // }
-                game.iso.simpleSort(isoGroup);
+                game.debug.spriteBounds(cube);
+                cube.alpha =Math.random()/10+.85;
+                cube.id = "cubo_"+ ii.toString()+"x"+jj.toString();
+                console.log(cube.id);
+                if (level_matrix[ii][jj] <1) {
+                	cube = game.add.isoSprite(xx, yy,  -21, 'brick',0 , isoGroup);
+                	cube.anchor.set(0.5);
+                	cube.scale.set(0.3);
+                }
+				game.iso.simpleSort(isoGroup);
+                //game.iso.simpleSort(isoGroup);
             	jj++;
             }
         	ii++;
+        	jj = 0;
         }
 
-
-		this.char= game.add.sprite(this.game.world.centerX,this.game.world.centerY+5, 'viajero');
-		this.char.anchor.setTo(0.5,.9);
+		//this.char= game.add.sprite(this.game.world.centerX,this.game.world.centerY+5, 'viajero');
+		this.char= game.add.isoSprite(0,0,0, 'viajero', 0,isoGroup);
+		this.char.anchor.set(0.5,.45);
 		this.char.scale.set(0.5);
 		this.char.customParams = {direction : 1};
+
+        game.iso.topologicalSort(isoGroup);
+
+		//game.physics.isoArcade.enable(this.char);
+        //this.char.body.collideWorldBounds = true;
 
 		this.pos= game.add.sprite(0,0, 'pos');
 		this.pos.anchor.setTo(0.5,.89);
@@ -177,36 +201,44 @@ var emitter = game.add.emitter(0, 0, 400);
 				this.pos.y = this.char.y -34;
 			break;
 		}
+		//game.debug.spriteBounds(this.char);
+		//game.debug.spriteInfo(this.char, 32, 32);
+		//game.debug.spriteBounds(isoGroup);
+
 	},
 	moveChar: function(v) {
+		//console.log(this.char.customParams.direction + " isoX = "+this.char.isoX + " isoY = " + this.char.isoY);
 		switch (this.char.customParams.direction){
 			case 1: 
-				var posx =  this.char.x - 19; 
-				var posy = this.char.y + 9.5; 
-				game.add.tween(this.char).to( { y: posy, x : posx}, animTime, "Linear", true);
+				this.game.add.tween(this.char).to( { isoY : this.char.isoY+=bdx}, 400, Phaser.Easing.Quadratic.InOut, true);
     			this.char.animations.play('walk_1', fps, false);
     			this.char.animations.currentAnim.onComplete.add(function () {	this.char.frame=1}, this);
+				game.iso.topologicalSort(isoGroup);
+
 				break;
 			case 2: 
-				var posx =  this.char.x + 19; 
-				var posy = this.char.y + 9.5; 
-				game.add.tween(this.char).to( { y: posy, x : posx}, animTime, "Linear", true);
+				game.add.tween(this.char).to( { isoX : this.char.isoX+=bdx}, animTime, "Linear", true);
     			this.char.animations.play('walk_2', fps, false);
     			this.char.animations.currentAnim.onComplete.add(function () {	this.char.frame=21}, this);
+        game.iso.topologicalSort(isoGroup);
+				        game.iso.topologicalSort(isoGroup);
+
 				break;
 			case 3: 
-				var posx =  this.char.x + 19; 
-				var posy = this.char.y - 9.5; 
-				game.add.tween(this.char).to( { y: posy, x : posx}, animTime, "Linear", true);
+				game.add.tween(this.char).to( { isoY: this.char.isoY-=bdx}, animTime, "Linear", true);
     			this.char.animations.play('walk_3', fps, false);
     			this.char.animations.currentAnim.onComplete.add(function () {	this.char.frame=41}, this);
+        game.iso.topologicalSort(isoGroup);
+				        game.iso.topologicalSort(isoGroup);
+
 				break;
 			case 4: 
-				var posx =  this.char.x - 19; 
-				var posy = this.char.y - 9.5; 
-				game.add.tween(this.char).to( { y: posy, x : posx}, animTime, "Linear", true);
+				game.add.tween(this.char).to( { isoX: this.char.isoX-=bdx}, animTime, "Linear", true);
     			this.char.animations.play('walk_4', fps, false);
     			this.char.animations.currentAnim.onComplete.add(function () {	this.char.frame=61}, this);
+        game.iso.topologicalSort(isoGroup);
+				        game.iso.topologicalSort(isoGroup);
+
 				break;
 		}
 	},
