@@ -121,13 +121,26 @@ $( document ).ready(function() {
 	function setCursor(){
 		switch (direction){
 			case 0 : 
-				// cursor.x=;
+				cursor.x=player.x-1;
+				cursor.y=player.y;
 				showGrid();
 				//getDirections();
 				break;
-			// case 1 : cursor[player[0][player[1]];break;
-			// case 2 : cursor[player[0][player[1]];break;
-			// case 3 : cursor[player[0][player[1]];break;
+			case 1 : 
+				cursor.x=player.x;
+				cursor.y=player.y+1;
+				showGrid();
+				break;
+			case 2 : 
+				cursor.x=player.x+1;
+				cursor.y=player.y;
+				showGrid();
+				break;
+			case 3 : 
+				cursor.x=player.x;
+				cursor.y=player.y-1;
+				showGrid();
+				break;
 		}
 	}
 
