@@ -10,6 +10,7 @@ var dx = 5;
 var dy = 5;
 var bdx = 21;
 var bdy = 21;
+var rows, cols, vars, grid, pos;
 
 var Level = {
 	preload:function () {
@@ -18,7 +19,7 @@ var Level = {
 		this.load.image('rain', 'assets/rain.png');
 		this.game.load.atlasJSONHash('viajero', 'assets/viajero.png', 'assets/viajero.json');
 		this.game.load.atlasJSONHash('ui', 'assets/ui.png', 'assets/ui.json');
-		//this.game.load.atlasJSONHash('bricks', 'assets/bricks.png', 'assets/bricks.json');
+		this.game.load.atlasJSONHash('bricks', 'assets/bricks.png', 'assets/bricks.json');
     	this.game.load.audio('bgmusic', ['assets/audio/bgmusic.ogg']);
 
     	this.centerX = this.game.world.centerX;
@@ -62,14 +63,36 @@ var Level = {
 
 			emitter.start(false, 1400, 5, 0);
 
+		this.grid = [];
 
-		// var level_1 =[];
-		// for (var i = 0; i < dx; i++) {
-		// 	for (var j = 0; j < dy; j++) {
-		// 		level_1[[i],[j]]=i;
-		// 		//console.log(level_1[[i],[j]]);
-		// 	}
-		// }
+		var prettyString = "";
+
+		rows = 12;
+		cols = 12;
+		vars = 4;
+		pos = [0,0];
+		for (i = 0; i < rows; i++) {
+			this.grid.push([]);
+			for (j = 0; j < cols; j++) {
+				this.grid[i].push(0);
+			}
+		}
+
+		for (i = 0; i < rows; i++) {
+			for (j = 0; j < cols; j++) {
+				this.grid[i][j] = Math.floor(Math.random()*vars)+1;
+			}
+		}
+
+		for (i = 0; i < rows; i++) {
+			prettyString += " \n ";
+			for (j = 0; j < cols; j++) {
+				prettyString += " " + this.grid[i][j];
+			}
+		}
+
+		//console.log(this.grid);
+		console.log(prettyString);
 
         isoGroup = game.add.group();
 
@@ -79,30 +102,31 @@ var Level = {
 
 		var cube; 
 
-		
-		level_matrix = [[1,1,1,1,1],
-						[1,1,1,0,1],
-						[0,0,1,0,1],
-						[1,1,0,0,1],
-						[1,1,0,1,0]];
 		//var cubito;
 		//cubito = game.add.Cube(10, 10, 10, 20, 32, 32) ;
 
-        for (var xx = bdx*dx; xx > 0; xx -= bdx) {
-            for (var yy = bdy*dy; yy > 0; yy -= bdy) {
-                cube = game.add.isoSprite(xx, yy,  -42, 'brick',0 , isoGroup);
+        for (var xx = bdx*rows; xx > 0; xx -= bdx) {
+            for (var yy = bdy*cols; yy > 0; yy -= bdy) {
+                cube = game.add.isoSprite(xx, yy, 0, 'bricks',0 , isoGroup);
                 //cube = game.add.isoSprite(xx, yy,  4, 'bricks',0 , isoGroup);
-                cube.anchor.set(0.5);
+                cube.anchor.set(1);
                 cube.scale.set(0.3);
                 game.debug.spriteBounds(cube);
-                cube.alpha =Math.random()/10+.85;
+                // cube.alpha =Math.random()/20+.9;
                 cube.id = "cubo_"+ ii.toString()+"x"+jj.toString();
-                console.log(cube.id);
-                if (level_matrix[ii][jj] <1) {
-                	cube = game.add.isoSprite(xx, yy,  -21, 'brick',0 , isoGroup);
-                	cube.anchor.set(0.5);
-                	cube.scale.set(0.3);
+                cube.isoZ=(this.grid[ii][jj]*3);
+                //console.log(cube.id);
+                switch (this.grid[ii][jj]) {
+                	case 1 : cube.tint = 0x61d2fe; break;
+                	case 2 : cube.tint = 0x48dc6c; break;
+                	case 3 : cube.tint = 0xfed201; break;
+                	case 4 : cube.tint = 0xfe4a65; break;
                 }
+                // if (level_matrix[ii][jj] <1) {
+                // 	cube = game.add.isoSprite(xx, yy,  -21, 'brick',0 , isoGroup);
+                // 	cube.anchor.set(0.5);
+                // 	cube.scale.set(0.3);
+                // }
 				game.iso.simpleSort(isoGroup);
                 //game.iso.simpleSort(isoGroup);
             	jj++;
@@ -110,6 +134,8 @@ var Level = {
         	ii++;
         	jj = 0;
         }
+
+        this.game.add.text(0,0,"Hola");
 
 		//this.char= game.add.sprite(this.game.world.centerX,this.game.world.centerY+5, 'viajero');
 		this.char= game.add.isoSprite(0,0,0, 'viajero', 0,isoGroup);
